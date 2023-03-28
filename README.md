@@ -1,4 +1,4 @@
-# Frontend Dev Challenge project Reign
+# Entrevista tecnica Galilea
 
 ## Run using Docker Compose
 
