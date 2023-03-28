@@ -12,10 +12,12 @@ export const useMinMax = (
   useEffect(() => {
     if (min && Number(inputValue) - step < min) {
       setBeyondMinLimit(true)
-    } else if (max && Number(inputValue) + step > max) {
-      setBeyondMaxtLimit(true)
     } else {
       setBeyondMinLimit(false)
+    }
+    if (max && Number(inputValue) + step > max) {
+      setBeyondMaxtLimit(true)
+    } else {
       setBeyondMaxtLimit(false)
     }
   }, [inputValue, max, min, step, setBeyondMinLimit, setBeyondMaxtLimit]);
