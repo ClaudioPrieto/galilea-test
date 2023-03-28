@@ -1,13 +1,18 @@
 import '../style/index.css'
 import NumberInput from '../components/NumberInput';
-import { FC, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { checkMinMax } from '../helpers/checkMinMax';
 
 const HomePage: FC = () => {
 
   const [value, setValue] = useState<string>('50')
 
-  const handleChange = (value: string, min?: number, max?: number, precision?: number, setInputValue?: any) => {
+  const handleChange = (value: string,
+    min?: number,
+    max?: number,
+    precision?: number,
+    setInputValue?: Dispatch<SetStateAction<string>>
+  ) => {
     setValue(checkMinMax(value, min, max, precision))
     if (setInputValue) setInputValue(checkMinMax(value, min, max, precision))
   }
