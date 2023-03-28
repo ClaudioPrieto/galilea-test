@@ -1,4 +1,9 @@
-export const checkMinMax = (value: string, min?: number, max?: number, precision?: number) => {
+export const checkMinMax = (
+  value: string,
+  min?: number,
+  max?: number,
+  precision?: number
+): string => {
   if (precision) value = Number(value).toFixed(precision)
   if (max && Number(value) >= max) {
     return max + ''

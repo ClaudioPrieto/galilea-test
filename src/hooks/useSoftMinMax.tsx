@@ -4,7 +4,7 @@ export const useSoftMinMax = (
   inputValue: string,
   softMin?: number,
   softMax?: number,
-) => {
+): boolean => {
   const [beyondSoftLimit, setBeyondSoftLimit] = useState<boolean>(false)
 
   useEffect(() => {

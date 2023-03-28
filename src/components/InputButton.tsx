@@ -17,7 +17,6 @@ const InputButton = ({
   onChange,
   setInputValue,
 }: InputButtonProps) => {
-
   const handleClick = () => {
     const newValue = tag === '+' ? Number(value) + step + '' : Number(value) - step + '' 
     onChange(newValue);
@@ -26,9 +25,9 @@ const InputButton = ({
 
   return (
     <button 
-        className={`bg-gray-100 px-3 py-1 rounded text-xl ${beyondLimit ? 'opacity-40' : 'hover:bg-gray-300'}`}
-        onClick={handleClick}
-        disabled={beyondLimit}
+      className={`bg-gray-100 px-3 py-1 rounded text-xl ${beyondLimit ? 'opacity-40' : 'hover:bg-gray-300'}`}
+      onClick={handleClick}
+      disabled={beyondLimit}
     >{tag}</button>
   );
 }

@@ -5,7 +5,7 @@ export const useMinMax = (
   step: number,
   min?: number,
   max?: number,
-) => {
+): boolean[] => {
   const [beyondMinLimit, setBeyondMinLimit] = useState<boolean>(false)
   const [beyondMaxLimit, setBeyondMaxtLimit] = useState<boolean>(false)
   
