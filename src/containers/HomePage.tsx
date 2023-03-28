@@ -25,7 +25,7 @@ const HomePage: FC = () => {
   const [editable, setEditable] = useState<boolean>(true);
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='main-container flex flex-col items-center'>
       <div className='mt-2'>
         Step: <input value={step} onChange={e => setStep(e.target.value)} type='number' />
         Min: <input value={min} onChange={e => setMin(e.target.value)} type='number' />
