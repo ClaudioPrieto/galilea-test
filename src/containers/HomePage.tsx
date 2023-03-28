@@ -5,10 +5,11 @@ import { checkMinMax } from '../helpers/checkMinMax';
 
 const HomePage: FC = () => {
 
-  const [value, setValue] = useState<string>('0')
+  const [value, setValue] = useState<string>('50')
 
-  const handleChange = (value: string, min?: number, max?: number, precision?: number) => {
+  const handleChange = (value: string, min?: number, max?: number, precision?: number, setInputValue?: any) => {
     setValue(checkMinMax(value, min, max, precision))
+    if (setInputValue) setInputValue(checkMinMax(value, min, max, precision))
   }
 
   const toggle = (value: boolean) => {
@@ -16,11 +17,11 @@ const HomePage: FC = () => {
   }
 
   const [step, setStep] = useState<string>('1');
-  const [min, setMin] = useState<string>('0');
-  const [max, setMax] = useState<string>('30');
-  const [softMin, setSoftMin] = useState<string>('10');
-  const [softMax, setSoftMax] = useState<string>('20');
-  const [precision, setPrecision] = useState<string>('2');
+  const [min, setMin] = useState<string>('10');
+  const [max, setMax] = useState<string>('100');
+  const [softMin, setSoftMin] = useState<string>('30');
+  const [softMax, setSoftMax] = useState<string>('80');
+  const [precision, setPrecision] = useState<string>('0');
   const [editable, setEditable] = useState<boolean>(true);
 
   return (

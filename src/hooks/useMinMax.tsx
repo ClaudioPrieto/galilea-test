@@ -10,9 +10,9 @@ export const useMinMax = (
   const [beyondMaxLimit, setBeyondMaxtLimit] = useState<boolean>(false)
   
   useEffect(() => {
-    if (min !== undefined && Number(inputValue) - step < min) {
+    if (min && Number(inputValue) - step < min) {
       setBeyondMinLimit(true)
-    } else if (max !== undefined && Number(inputValue) + step > max) {
+    } else if (max && Number(inputValue) + step > max) {
       setBeyondMaxtLimit(true)
     } else {
       setBeyondMinLimit(false)

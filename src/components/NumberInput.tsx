@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useState } from "react";
+import React, { Dispatch, SetStateAction, useCallback, useState } from "react";
 import debounce from "lodash/debounce";
 import InputButton from "./InputButton";
 import { useMinMax } from "../hooks/useMinMax";
@@ -16,7 +16,7 @@ export interface NumberInputProps {
   softMax?: number
   editable?: boolean
   precision?: number
-  onChange: (value: string, min?: number, max?: number, precision?: number) => void
+  onChange: (value: string, min?: number, max?: number, precision?: number, setInputValue?: Dispatch<SetStateAction<string>>) => void
 }
 
 const NumberInput = ({
@@ -30,7 +30,7 @@ const NumberInput = ({
   editable,
   onChange,
 }: NumberInputProps) => {
-  const [inputValue, setInputValue] = useState<string>('0')
+  const [inputValue, setInputValue] = useState<string>(value)
 
   const beyondSoftLimit = useSoftMinMax(inputValue, softMin, softMax)
   const [beyondMinLimit, beyondMaxLimit] = useMinMax(inputValue, step, min, max)
@@ -38,7 +38,7 @@ const NumberInput = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setInputValue(newValue);
-    debouncedChangeHandler(newValue, min, max, precision);
+    debouncedChangeHandler(newValue, min, max, precision, setInputValue);
   };
 
   const debouncedChangeHandler = useCallback(
