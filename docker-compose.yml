@@ -1,7 +1,7 @@
 services:
   client:
     restart: always
-    container_name: react-front
+    container_name: inventures-front
     build:
       context: ./
       dockerfile: Dockerfile
